@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/texvcontac"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/texvcontacto" />
+
+
+    <EditText
+        android:id="@+id/txtnombre"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:hint="@string/txtnombre"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtmail"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:hint="@string/txtemail" />
+
+    <EditText
+        android:id="@+id/txttwitt"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:hint="@string/txttwitt" />
+
+    <EditText
+        android:id="@+id/txttel"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:hint="@string/txttelefono" />
+
+    <EditText
+        android:id="@+id/txtfech"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:hint="@string/txtfechanac" />
+
+    <Button
+        android:id="@+id/btnagregar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/btnaceptar" />
+
+</LinearLayout>

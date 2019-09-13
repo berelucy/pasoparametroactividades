@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Contact</string>
+    <string name= "btnagregar">Agregar Contacto</string>
+    <string name= "btnaceptar">Guardar</string>
+    <string name="texvcontacto">Contacto</string>
+    <string name="txtnombre">Nombre</string>
+    <string name="txtemail">Email</string>
+    <string name="txttwitt">Twitter</string>
+    <string name="txttelefono">Telefono</string>
+    <string name="txtfechanac">Fecha_Nacimiento</string>
+    <string name="texvlista">"Lista Contactos</string>
+</resources>
