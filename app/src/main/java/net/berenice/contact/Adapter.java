@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
@@ -22,20 +23,28 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textView;
-        public MyViewHolder(TextView v) {
+        public MyViewHolder(View v) {
             super(v);
             textView = v.findViewById(R.id.txttext);
         }
     }
-    public Adapter(List<Contact> contactsList, Context ctx) {
-       this.contactsList=contactsList;
-        this.ctx = ctx;
+    ArrayList<String> datos;
+    public Adapter(ArrayList<String> dataSet) {
+        datos=dataSet;
+
     }
+
+    public Adapter(ArrayList<String> dataSet, Context ctx) {
+        datos=dataSet;
+        this.ctx = ctx;
+
+    }
+
 
     @NonNull
     @Override
     public Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
+        View v =  LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_text_view, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v);
@@ -44,7 +53,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.MyViewHolder holder, int position) {
-        Contact c = contactsList.get(position);
+        holder.textView.setText(datos.get(position));
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +64,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return contactsList.size();
+        return datos.size();
     }
 }

@@ -23,7 +23,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Button btn;
-    private List<Contact> contactsLis;
+    ArrayList<String> lista = new ArrayList<>();
+    Contact contact;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -47,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
         //mAdapter = new Adapter();
 
-       // Adapter adp = new Adapter(contactsLis);
-       recyclerView.setAdapter(mAdapter);
+
         recyclerView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -73,11 +73,25 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            Contact cont = (Contact) data.getSerializableExtra(
-                    "Osvaldo"
-            );
+            contact = (Contact) data.getParcelableExtra(
+                    "parcerable");
+            String nombre = contact.getNombre();
+            String email = contact.getEmail();
+            String twitt = contact.getTwitter();
+            String telefono = contact.getTel();
+            String fechnac = contact.getFechanac();
 
+
+            lista.add(nombre + " "+ email);
+
+
+            mAdapter = new Adapter(lista, this);
+            recyclerView.setAdapter(mAdapter);
+
+        }else {
+            Toast.makeText(MainActivity.this, "Contacto no creado", Toast.LENGTH_LONG).show();
         }
+
 
     }
 }
